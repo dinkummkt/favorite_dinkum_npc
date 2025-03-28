@@ -1,0 +1,32 @@
+
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.matchup {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.npc {
+  width: 45%;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.npc:hover {
+  transform: scale(1.05);
+}
+.npc img {
+  width: 100%;
+  border-radius: 10px;
+}

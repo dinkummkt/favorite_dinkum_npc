@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who's Your Favorite Dinkum NPC?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="DKO_Logo_C.png" alt="Dinkum Logo" style="width: 200px; margin-bottom: 20px;" />
+    <h1>Who's Your Favorite Dinkum NPC?</h1>
+    <div id="match-info"></div>
+    <div class="matchup">
+      <div class="npc" id="npc1" onclick="choose(0)">
+        <img id="img1" src="" alt="NPC 1" />
+        <p id="name1"></p>
+      </div>
+      <div class="npc" id="npc2" onclick="choose(1)">
+        <img id="img2" src="" alt="NPC 2" />
+        <p id="name2"></p>
+      </div>
+    </div>
+    <div id="result" style="display:none;"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    let npcList = [...npcData];
+    let currentIndex = 0;
+    let currentChampion = null;
+    let matchCount = 0;
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function startMatchup() {
+      npcList = shuffle(npcList);
+      currentChampion = npcList[currentIndex++];
+      nextChallenger();
+    }
+
+    function nextChallenger() {
+      if (currentIndex >= npcList.length) {
+        showWinner(currentChampion);
+        return;
+      }
+
+      const challenger = npcList[currentIndex];
+
+      document.getElementById("img1").src = currentChampion.image;
+      document.getElementById("name1").textContent = currentChampion.name;
+
+      document.getElementById("img2").src = challenger.image;
+      document.getElementById("name2").textContent = challenger.name;
+
+      document.getElementById("match-info").textContent = `Match ${matchCount + 1} of ${npcList.length - 1}`;
+    }
+
+    function choose(choice) {
+      matchCount++;
+      if (choice === 1) {
+        currentChampion = npcList[currentIndex];
+      }
+      currentIndex++;
+      nextChallenger();
+    }
+
+    function showWinner(npc) {
+      document.querySelector(".matchup").style.display = "none";
+      document.getElementById("match-info").style.display = "none";
+      const result = document.getElementById("result");
+      result.innerHTML = `<div id="result-content"><h2>Your Favorite NPC:</h2><img src="${npc.image}" alt="" style="width:200px;"><h3>${npc.name}</h3></div>`;
+      result.style.display = "block";
+    }
+
+    window.onload = startMatchup;
+  </script>
+</body>
+</html>

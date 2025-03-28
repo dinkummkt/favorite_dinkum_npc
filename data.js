@@ -1,0 +1,20 @@
+const npcData = [
+  { name: "Clover", image: "images/Clover.png" },
+  { name: "Fletch", image: "images/Fletch.png" },
+  { name: "Franklyn", image: "images/Franklyn.png" },
+  { name: "Irwin", image: "images/Irwin.png" },
+  { name: "Jimmy", image: "images/Jimmy.png" },
+  { name: "John", image: "images/John.png" },
+  { name: "Julia", image: "images/Julia.png" },
+  { name: "Max", image: "images/Max.png" },
+  { name: "Melvin", image: "images/Melvin.png" },
+  { name: "Milburn", image: "images/Milburn.png" },
+  { name: "Nancy", image: "images/Nancy.png" },
+  { name: "Nick", image: "images/Nick.png" },
+  { name: "Rayne", image: "images/Rayne.png" },
+  { name: "Sally", image: "images/Sally.png" },
+  { name: "Sheila", image: "images/Sheila.png" },
+  { name: "Ted Selly", image: "images/Ted_Selly.png" },
+  { name: "Theodore", image: "images/Theodore.png" },
+  { name: "TownCo. Agent", image: "images/TownCo._Agent.png" }
+];
